@@ -11,6 +11,7 @@ import {
   ArrowUpRight,
   Sparkles,
 } from "lucide-react";
+import Dservice from "@/components/Dservice";
 
 const socialMedia = [
   {
@@ -37,7 +38,8 @@ const socialMedia = [
 
 const Home = () => {
   return (
-    <section className="relative flex min-h-[calc(100vh-80px)] items-center overflow-hidden px-5 py-12 sm:px-8 lg:px-12">
+    <div>
+      <section className="relative flex min-h-[calc(100vh-80px)] items-center overflow-hidden px-5 py-12 sm:px-8 lg:px-12">
       {/* Background glow */}
       <div className="pointer-events-none absolute left-0 top-1/4 -z-10 h-72 w-72 rounded-full bg-purple-600/10 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 -z-10 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]" />
@@ -56,7 +58,7 @@ const Home = () => {
             Hello, I'm
           </p>
 
-          <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="font-sans text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
             Sakin Arshad
             <span className="mt-1 block bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
               Ayan.
@@ -160,7 +162,10 @@ const Home = () => {
         </div>
 
       </div>
+      
     </section>
+    <Dservice/>
+    </div>
   );
 };
 
