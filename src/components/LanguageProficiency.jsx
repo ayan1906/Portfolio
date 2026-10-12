@@ -201,13 +201,13 @@ const LanguageProficiency = () => {
           return (
             <article
               key={skill.name}
-              className={`group rounded-2xl border border-slate-800/90 bg-[#0e1324]/90 p-5 transition duration-300 hover:-translate-y-1 hover:border-purple-500/40 hover:shadow-xl ${skill.glow} sm:p-6`}
+              className={`group rounded-2xl border border-slate-800/90 bg-[#110d1b]/90 p-5 transition duration-300 hover:-translate-y-1 hover:border-purple-500/40 hover:shadow-xl ${skill.glow} sm:p-6`}
             >
               {/* Skill name and percentage */}
               <div className="flex items-center justify-between gap-4">
                 <div className="flex min-w-0 items-center gap-4">
                   <div
-                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${skill.color} bg-opacity-10 text-white`}
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl  bg-[#110d1b]/90${skill.color} bg-opacity-10 text-white`}
                   >
                     <Icon size={27} strokeWidth={1.8} />
                   </div>
