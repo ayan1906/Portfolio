@@ -26,8 +26,8 @@ const Gallary = () => {
             <div className='grid grid-cols-2 lg:grid-cols-3 gap-8 mt-6 ml-8'>
                 {gallarydata.map((data) => (
                     <div className='flex flex-col bg-[#0E1324] border border-[#0E1324] rounded-2xl hover:scale-102 hover:border-purple-700 transition duration-300 '>
-                        <img src={data.image} alt={data.head} className='border-12 rounded-2xl  border-[#0d0a16] ' />
-                        <p className='w-36 mt-2 mx-3 px-2 text-xs font-bold text-green-500 border border-green-600 rounded-full'>{data.tag}</p>
+                        <img src={data.image} alt={data.head} className='border-12 flex justify-start   rounded-2xl  border-[#0d0a16] ' />
+                        <p className='w-36 mt-2 mx-3 pl-2 text-xs font-bold text-green-500 border border-green-600 rounded-full'>{data.tag}</p>
                         <h1 className='font-bold p-6'>{data.head}</h1>
                         <hr className="w-full border-white/20" />
 

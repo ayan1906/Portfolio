@@ -1,8 +1,11 @@
+import Skillcard from '@/components/Skillcard'
 import React from 'react'
 
 const Skills = () => {
   return (
-    <div>Skills</div>
+    <div>
+      <Skillcard />
+    </div>
   )
 }
 
