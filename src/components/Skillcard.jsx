@@ -42,30 +42,33 @@ const Skillcard = () => {
             name: 'Pandas',
             icon: "/images/skillslogo/pandas.png"
         },
-        
+
     ]
     return (
         <div>
-            
-                <h2 className=" flex justify-center my-6 mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                        Digital{" "}
-                        <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-                            Services
-                        </span>
-                    </h2>
 
-            
+            <h2 className=" flex justify-center my-6 mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                Digital{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                    Services
+                </span>
+            </h2>
+
+
             <div className='grid grid-cols-2 lg:grid-cols-4'>
                 {skilldata.map((skill) => (
                     <div className='flex justify-center'>
                         <div className=' bg-[#110d1b]/95 w-80 m-2 flex flex-col p-3 items-center justify-center rounded-lg gap-6 hover:bg-[#1b1036]/80 transition duration-200'>
-                        <img className='w-12 -mb-4' src={skill.icon} alt="" />
-                        <h1>{skill.name}</h1>
-                    </div>
+                            <img className='w-12 -mb-4' src={skill.icon} alt="" />
+                            <h1>{skill.name}</h1>
+                        </div>
                     </div>
                 ))}
 
             </div>
+
+           
+            
         </div>
     )
 }
