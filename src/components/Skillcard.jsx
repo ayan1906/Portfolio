@@ -46,10 +46,15 @@ const Skillcard = () => {
     ]
     return (
         <div>
-            <div>
-                <h1>Skills & Intrest</h1>
+            
+                <h2 className=" flex justify-center my-6 mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                        Digital{" "}
+                        <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                            Services
+                        </span>
+                    </h2>
 
-            </div>
+            
             <div className='grid grid-cols-2 lg:grid-cols-4'>
                 {skilldata.map((skill) => (
                     <div className='flex justify-center'>

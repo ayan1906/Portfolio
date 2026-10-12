@@ -24,11 +24,13 @@ const MainLayout = () => {
                 />
             </div>
 
-            <div className="relative z-10 flex flex-1 flex-col">
+            <div className="relative z-10 flex min-h-screen flex-col">
                 <Navbar />
-                <main>
-                    <Outlet className="flex-1" />
+
+                <main className="flex flex-1 flex-col">
+                    <Outlet />
                 </main>
+
                 <Footer />
             </div>
 
