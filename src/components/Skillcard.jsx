@@ -47,12 +47,14 @@ const Skillcard = () => {
     return (
         <div>
 
-            <h2 className=" flex justify-center my-6 mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                Digital{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
-                    Services
-                </span>
-            </h2>
+            <div className='mb-14 flex flex-col items-center text-center'>
+                <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                        Skills & {" "}
+                        <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                            Intrest
+                        </span>
+                    </h2>
+            </div>
 
 
             <div className='grid grid-cols-2 lg:grid-cols-4'>
@@ -67,8 +69,8 @@ const Skillcard = () => {
 
             </div>
 
-           
-            
+
+
         </div>
     )
 }

@@ -66,8 +66,8 @@ const skills = [
   },
   {
     name: "Python",
-    level: "Advanced",
-    percentage: 85,
+    level: "Intermediate",
+    percentage: 60,
     icon: Terminal,
     color: "from-violet-500 to-purple-400",
     glow: "group-hover:shadow-purple-500/10",
@@ -297,14 +297,7 @@ const LanguageProficiency = () => {
       </div>
 
       {/* Note */}
-      <p className="mt-8 flex items-center justify-center gap-2 text-center text-xs leading-6 text-slate-500 sm:text-sm">
-        <Sparkles
-          size={15}
-          className="shrink-0 text-purple-400"
-        />
-        Percentages represent my current self-assessment
-        and may change as I gain experience.
-      </p>
+      
     </section>
   );
 };
