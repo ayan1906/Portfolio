@@ -1,8 +1,10 @@
 import React from 'react'
-
+import Tictactoe from '@/components/Tictactoe'
 const Challenge = () => {
   return (
-    <div>Challenge</div>
+    <div>
+      <Tictactoe/>
+    </div>
   )
 }
 
