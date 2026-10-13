@@ -5,8 +5,8 @@ import {
   Menu,
   X,
   ArrowUpRight,
- House,
- IdCard,Gamepad2,FolderOpenDot,Award,Route
+  House,
+  IdCard, Gamepad2, FolderOpenDot, Award, Route
 
 } from "lucide-react";
 
@@ -16,12 +16,12 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
-    { name: "Home", path: "/" ,icon: <House/> },
-    { name: "About Me", path: "/about" ,  icon: <IdCard/> },
-    { name: "Skills", path: "/skills" , icon: <Award/>},
-    { name: "Projects", path: "/project" , icon: <FolderOpenDot/> },
-    { name: "Journey", path: "/journey" , icon:<Route/> },
-    { name: "Challenges", path: "/challenge" , icon: <Gamepad2/> },
+    { name: "Home", path: "/", icon: <House /> },
+    { name: "About Me", path: "/about", icon: <IdCard /> },
+    { name: "Skills", path: "/skills", icon: <Award /> },
+    { name: "Projects", path: "/project", icon: <FolderOpenDot /> },
+    { name: "Journey", path: "/journey", icon: <Route /> },
+    { name: "Challenges", path: "/challenge", icon: <Gamepad2 /> },
   ];
 
   useEffect(() => {
@@ -69,10 +69,9 @@ const Navbar = () => {
                 to={link.path}
                 end={link.path === "/"}
                 className={({ isActive }) =>
-                  `relative whitespace-nowrap py-1 text-sm font-medium transition-colors duration-300 ${
-                    isActive
-                      ? "text-white"
-                      : "text-gray-400 hover:text-white"
+                  `relative whitespace-nowrap py-1 text-sm font-medium transition-colors duration-300 ${isActive
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
                   }`
                 }
               >
@@ -80,9 +79,8 @@ const Navbar = () => {
                   <>
                     {link.name}
                     <span
-                      className={`absolute -bottom-1 left-0 h-[2px] rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-400 transition-all duration-300 ${
-                        isActive ? "w-full" : "w-0"
-                      }`}
+                      className={`absolute -bottom-1 left-0 h-[2px] rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-400 transition-all duration-300 ${isActive ? "w-full" : "w-0"
+                        }`}
                     />
                   </>
                 )}
@@ -92,20 +90,20 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden items-center gap-3 lg:flex">
-            
 
-            <NavLink
-              to="/contact"
+
+            <a
+              href="/#contact"
               className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:border-purple-400/60 hover:bg-purple-500/20"
             >
               Let's Talk
               <ArrowUpRight size={15} />
-            </NavLink>
+            </a>
           </div>
 
           {/* Mobile Actions */}
           <div className="flex items-center gap-3 lg:hidden">
-            
+
 
             <button
               type="button"
@@ -124,11 +122,10 @@ const Navbar = () => {
       <div
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
-        className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-[3px] transition-opacity duration-300 lg:hidden ${
-          menuOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0"
-        }`}
+        className={`fixed inset-0 z-[60] bg-black/60 backdrop-blur-[3px] transition-opacity duration-300 lg:hidden ${menuOpen
+          ? "pointer-events-auto opacity-100"
+          : "pointer-events-none opacity-0"
+          }`}
       />
 
       {/* Right-side Mobile Drawer */}
@@ -136,9 +133,8 @@ const Navbar = () => {
         id="mobile-navigation"
         aria-label="Mobile navigation"
         aria-hidden={!menuOpen}
-        className={`fixed right-0 top-0 z-[70] flex h-dvh w-[min(85%,360px)] flex-col border-l border-purple-400/20 bg-[#0b0713] shadow-[-20px_0_80px_rgba(124,58,237,0.15)] transition-transform duration-300 ease-in-out lg:hidden ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed right-0 top-0 z-[70] flex h-dvh w-[min(85%,360px)] flex-col border-l border-purple-400/20 bg-[#0b0713] shadow-[-20px_0_80px_rgba(124,58,237,0.15)] transition-transform duration-300 ease-in-out lg:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Drawer Header */}
         <div className="flex h-[76px] shrink-0 items-center justify-between border-b border-white/10 px-5">
@@ -152,7 +148,7 @@ const Navbar = () => {
               <p className="text-base font-bold tracking-wider text-white">
                 AYAN<span className="text-purple-700">.</span>
               </p>
-              
+
             </div>
           </div>
 
@@ -181,14 +177,12 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
                 style={{ transitionDelay: menuOpen ? `${index * 35}ms` : "0ms" }}
                 className={({ isActive }) =>
-                  `group flex items-center justify-between rounded-xl border px-4 py-3.5 text-sm font-medium transition-all duration-200 ${
-                    isActive
-                      ? "border-purple-400/25 bg-purple-500/15 text-purple-300"
-                      : "border-transparent text-gray-400 hover:border-white/10 hover:bg-white/5 hover:text-white"
-                  } ${
-                    menuOpen
-                      ? "translate-x-0 opacity-100"
-                      : "translate-x-5 opacity-0"
+                  `group flex items-center justify-between rounded-xl border px-4 py-3.5 text-sm font-medium transition-all duration-200 ${isActive
+                    ? "border-purple-400/25 bg-purple-500/15 text-purple-300"
+                    : "border-transparent text-gray-400 hover:border-white/10 hover:bg-white/5 hover:text-white"
+                  } ${menuOpen
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-5 opacity-0"
                   }`
                 }
               >
@@ -196,11 +190,10 @@ const Navbar = () => {
                   <>
                     <span className="flex items-center gap-3">
                       <span
-                        className={`h-1.5 w-1.5 rounded-full ${
-                          isActive
-                            ? "bg-purple-400 shadow-[0_0_10px_#a855f7]"
-                            : "bg-gray-700 group-hover:bg-purple-400"
-                        }`}
+                        className={`h-1.5 w-1.5 rounded-full ${isActive
+                          ? "bg-purple-400 shadow-[0_0_10px_#a855f7]"
+                          : "bg-gray-700 group-hover:bg-purple-400"
+                          }`}
                       />
                       {link.icon}
                       {link.name}
@@ -208,11 +201,10 @@ const Navbar = () => {
 
                     <ArrowUpRight
                       size={15}
-                      className={`transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${
-                        isActive
-                          ? "text-purple-300"
-                          : "text-gray-600 group-hover:text-purple-300"
-                      }`}
+                      className={`transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 ${isActive
+                        ? "text-purple-300"
+                        : "text-gray-600 group-hover:text-purple-300"
+                        }`}
                     />
                   </>
                 )}
@@ -221,14 +213,14 @@ const Navbar = () => {
           </div>
 
           {/* Contact */}
-          <NavLink
-            to="/contact"
+          <a
+            href="/#contact"
             onClick={() => setMenuOpen(false)}
-            className="flex mt-2 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-950/30 transition hover:from-purple-500 hover:to-violet-500"
+            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-950/30 transition hover:from-purple-500 hover:to-violet-500"
           >
             Let's Talk
             <ArrowUpRight size={17} />
-          </NavLink>
+          </a>
         </nav>
 
         {/* Drawer Footer */}

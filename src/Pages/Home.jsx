@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Dservice from "@/components/Dservice";
+import Contact from "@/components/Contact";
 
 const socialMedia = [
   {
@@ -165,6 +166,10 @@ const Home = () => {
       
     </section>
     <Dservice/>
+
+    <section id="contact">
+      <Contact/>
+    </section>
     </div>
   );
 };

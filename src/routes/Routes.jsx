@@ -7,7 +7,6 @@ import Skills from '@/Pages/Skills'
 import Project from '@/Pages/Project'
 import Journey from '@/Pages/Journey'
 import Challenge from '@/Pages/Challenge'
-import Contact from '@/Pages/Contact'
 
 export const Router = createBrowserRouter([
     {
@@ -38,10 +37,7 @@ export const Router = createBrowserRouter([
                 path:'/challenge' , 
                 element: <Challenge/>
             },
-            {
-                path:'/contact' , 
-                element: <Contact/>
-            },
+            
             
         ]
     }
