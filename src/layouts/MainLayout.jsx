@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { Outlet } from 'react-router-dom'
 import DotField from '@/components/DotField'
+import ChatBot from '@/components/chatbot/ChatBot'
 const MainLayout = () => {
     return (
         <div className="relative isolate min-h-screen bg-[#08060d] text-white">
@@ -32,6 +33,7 @@ const MainLayout = () => {
                 </main>
 
                 <Footer />
+                <ChatBot/>
             </div>
 
         </div>

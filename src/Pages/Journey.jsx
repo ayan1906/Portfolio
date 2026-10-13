@@ -1,8 +1,11 @@
+import Journeylife from '@/components/Journeylife'
 import React from 'react'
 
 const Journey = () => {
   return (
-    <div>Journey</div>
+    <div>
+      <Journeylife/>
+    </div>
   )
 }
 
