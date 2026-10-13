@@ -15,8 +15,8 @@ const Dservice = () => {
         },
         {
             logo: <Palette />,
-            name: 'Graphics Design',
-            text: "Brand Logo , Logo Design , Clean UI",
+            name: 'UI/UX Enthausiast',
+            text: "Clean UI , Responsive Design",
             bg: '#1B1D49'
 
         },

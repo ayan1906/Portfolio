@@ -74,7 +74,7 @@ const Home = () => {
 
             <span className="inline-flex items-center gap-2 rounded-lg border border-purple-500/20 bg-purple-500/10 px-3 py-2 text-sm text-purple-300">
               <Palette size={17} />
-              Graphic Designer
+              UI/UX Enthausiast
             </span>
           </div>
 

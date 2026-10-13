@@ -43,10 +43,10 @@ const Projectcard = () => {
                     </span>
                 </h2>
             </div>
-            <div className='justify-around grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3'>
+            <div className='w- justify-around grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3'>
                 {projectdata.map((project, index) => (
 
-                    <div key={index} className='mx-auto w-80 rounded-xl bg-[#100D1A] border border-[#100D1A] hover:border-violet-700 hover:scale-102 transition duration-300'>
+                    <div key={index} className='mx-auto mb-10 w-85 rounded-xl bg-[#100D1A] border border-[#100D1A] hover:border-violet-700 hover:scale-102 transition duration-300'>
                         <img src={project.image} alt="" className=' h-56 p-3 rounded-3xl' />
                         <h1 className='text-xl font-bold ml-4'>{project.name}</h1>
                         <p className='text-sm ml-4 my-4 text-slate-400'>{project.text}</p>
