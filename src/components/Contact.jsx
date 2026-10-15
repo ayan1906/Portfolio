@@ -1,9 +1,13 @@
+import { motion } from "motion/react";
+import { fadeLeft, fadeRight, fadeUp, viewport } from "./motionVariants";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Mail, Phone } from "lucide-react";
 import { useForm } from "react-hook-form";
 import SwipeToast from "./SwipeToast";
 
 const Contact = () => {
+    const [showToast, setShowToast] = useState(false);
     const {
         register,
         handleSubmit,
@@ -30,6 +34,7 @@ const Contact = () => {
 
 
             reset();
+            setShowToast(true);
         } catch (error) {
             console.error("EmailJS Error:", error);
             alert("Message could not be sent. Please try again.");
@@ -44,15 +49,15 @@ const Contact = () => {
             id="contact"
             className="w-full bg-[#080a0f] px-4 py-10 sm:px-6 lg:px-8 lg:py-16"
         >
-            <div className="relative mx-auto w-full max-w-[1216px] overflow-hidden rounded-[24px] border border-[#263044] bg-[#0d1321] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className="relative mx-auto w-full max-w-[1216px] overflow-hidden rounded-[24px] border border-[#263044] bg-[#0d1321] px-6 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
 
                 {/* Bottom-right glow */}
-                <div className="pointer-events-none absolute -bottom-28 -right-20 h-80 w-96 rounded-full bg-purple-600/10 blur-[100px]" />
+                <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -bottom-28 -right-20 h-80 w-96 rounded-full bg-purple-600/10 blur-[100px]" />
 
                 <div className="relative z-10 grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
 
                     {/* LEFT SIDE */}
-                    <div className="flex flex-col">
+                    <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={viewport} className="flex flex-col">
                         <div>
                             <span className="inline-flex items-center rounded-full border border-emerald-500/25 bg-emerald-500/10 px-3 py-1 text-xs font-bold tracking-wide text-emerald-400">
                                 LET'S TALK
@@ -74,7 +79,7 @@ const Contact = () => {
                         <div className="mt-6 flex flex-col gap-4">
 
                             {/* Email */}
-                            <a
+                            <motion.a whileHover={{ x: 6 }} transition={{ type: "spring", stiffness: 300 }}
                                 href="mailto:hasinanumjahin1@gmail.com"
                                 className="group flex items-center gap-4"
                             >
@@ -91,10 +96,10 @@ const Contact = () => {
                                         adasr0099@gmail.com
                                     </p>
                                 </div>
-                            </a>
+                            </motion.a>
 
                             {/* Phone */}
-                            <a
+                            <motion.a whileHover={{ x: 6 }} transition={{ type: "spring", stiffness: 300 }}
                                 href="https://wa.me/8801708561481"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -113,13 +118,13 @@ const Contact = () => {
                                         +8801708561481
                                     </p>
                                 </div>
-                            </a>
+                            </motion.a>
 
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* RIGHT SIDE - FORM */}
-                    <form
+                    <motion.form variants={fadeRight} initial="hidden" whileInView="show" viewport={viewport}
                         onSubmit={handleSubmit(onSubmit)}
                         className="flex flex-col gap-4"
                     >
@@ -146,9 +151,9 @@ const Contact = () => {
                                 />
 
                                 {errors.name && (
-                                    <p className="mt-1.5 text-xs text-red-400">
+                                    <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="mt-1.5 text-xs text-red-400">
                                         {errors.name.message}
-                                    </p>
+                                    </motion.p>
                                 )}
                             </div>
 
@@ -175,9 +180,9 @@ const Contact = () => {
                                 />
 
                                 {errors.email && (
-                                    <p className="mt-1.5 text-xs text-red-400">
+                                    <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="mt-1.5 text-xs text-red-400">
                                         {errors.email.message}
-                                    </p>
+                                    </motion.p>
                                 )}
                             </div>
 
@@ -203,9 +208,9 @@ const Contact = () => {
                             />
 
                             {errors.subject && (
-                                <p className="mt-1.5 text-xs text-red-400">
+                                <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="mt-1.5 text-xs text-red-400">
                                     {errors.subject.message}
-                                </p>
+                                </motion.p>
                             )}
                         </div>
 
@@ -233,26 +238,34 @@ const Contact = () => {
                             />
 
                             {errors.message && (
-                                <p className="mt-1.5 text-xs text-red-400">
+                                <motion.p initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className="mt-1.5 text-xs text-red-400">
                                     {errors.message.message}
-                                </p>
+                                </motion.p>
                             )}
                         </div>
 
                         {/* Submit Button */}
-                        <button
+                        <motion.button whileHover={isSubmitting ? undefined : { y: -2 }} whileTap={isSubmitting ? undefined : { scale: 0.97 }}
 
                             type="submit"
                             disabled={isSubmitting}
-                            className="mt-1 flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#5145e8] to-[#922de8] px-5 py-3.5 text-sm font-bold text-white shadow-lg transition duration-300 hover:-translate-y-0.5 disabled:opacity-60"
+                            className="mt-1 flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#5145e8] to-[#922de8] px-5 py-3.5 text-sm font-bold text-white shadow-lg disabled:opacity-60"
                         >
                             {isSubmitting ? "Sending..." : "Send Message"}
-                        </button>
+                        </motion.button>
 
 
-                    </form>
+                    </motion.form>
                 </div>
-            </div>
+            </motion.div>
+
+            {showToast && (
+                <SwipeToast
+                    title="Message sent!"
+                    description="Thanks for reaching out. I'll reply within 24 hours."
+                    onClose={() => setShowToast(false)}
+                />
+            )}
         </section>
     );
 };

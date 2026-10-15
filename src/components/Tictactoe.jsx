@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from "motion/react";
+import { fadeUp, viewport } from "./motionVariants";
 
 import React, { useEffect, useState } from "react";
 import {
@@ -217,34 +219,34 @@ const TicTacToe = () => {
 
 
                 {/* Game panel */}
-                <div className="mx-auto max-w-lg border border-cyan-400/25 bg-[#080D1A]/95 p-5 shadow-[0_0_45px_rgba(6,182,212,0.07)] sm:p-8">
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className="mx-auto max-w-lg border border-cyan-400/25 bg-[#080D1A]/95 p-5 shadow-[0_0_45px_rgba(6,182,212,0.07)] sm:p-8">
                     {/* Scoreboard */}
                     <div className="mb-6 grid grid-cols-3 gap-2">
                         <div className="border rounded-xl border-cyan-400/30 bg-cyan-400/5 p-3 text-center">
                             <p className="text-[10px]  font-bold uppercase tracking-widest text-cyan-300 sm:text-xs">
                                 YOU / X
                             </p>
-                            <p className="mt-2 text-2xl font-black text-cyan-400">
+                            <motion.p key={scores.player} initial={{ scale: 1.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 400, damping: 15 }} className="mt-2 text-2xl font-black text-cyan-400">
                                 {scores.player}
-                            </p>
+                            </motion.p>
                         </div>
 
                         <div className="border rounded-xl border-white/10 bg-white/[0.02] p-3 text-center">
                             <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 sm:text-xs">
                                 Draws
                             </p>
-                            <p className="mt-2 text-2xl font-black text-white">
+                            <motion.p key={scores.draws} initial={{ scale: 1.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 400, damping: 15 }} className="mt-2 text-2xl font-black text-white">
                                 {scores.draws}
-                            </p>
+                            </motion.p>
                         </div>
 
                         <div className="border rounded-xl border-red-500/30 bg-red-500/5 p-3 text-center">
                             <p className="text-[10px] font-bold uppercase tracking-widest text-red-400 sm:text-xs">
                                 AYAN AI
                             </p>
-                            <p className="mt-2 text-2xl font-black text-red-400">
+                            <motion.p key={scores.ai} initial={{ scale: 1.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 400, damping: 15 }} className="mt-2 text-2xl font-black text-red-400">
                                 {scores.ai}
-                            </p>
+                            </motion.p>
                         </div>
                     </div>
 
@@ -259,7 +261,7 @@ const TicTacToe = () => {
                                 }`}
                         />
 
-                        <p
+                        <motion.p key={thinking ? "thinking" : gameOver ? "over" : "turn"} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}
                             aria-live="polite"
                             className={`text-xs font-bold uppercase tracking-[0.18em] sm:text-sm ${thinking
                                 ? "text-red-400"
@@ -271,7 +273,7 @@ const TicTacToe = () => {
                                 : gameOver
                                     ? "ROUND COMPLETE"
                                     : "YOUR TURN // X"}
-                        </p>
+                        </motion.p>
                     </div>
 
                     {/* Board */}
@@ -282,15 +284,16 @@ const TicTacToe = () => {
                     >
                         {board.map((cell, index) => {
                             const isWinning = winningLine.includes(index);
+                            const canPlay = !cell && !thinking && !gameOver;
 
                             return (
-                                <button
+                                <motion.button whileHover={canPlay ? { scale: 1.05 } : undefined} whileTap={canPlay ? { scale: 0.92 } : undefined} animate={isWinning ? { scale: [1, 1.1, 1] } : { scale: 1 }} transition={isWinning ? { duration: 0.8, repeat: Infinity, ease: "easeInOut" } : { type: "spring", stiffness: 400, damping: 25 }}
                                     key={index}
                                     type="button"
                                     onClick={() => handleClick(index)}
                                     disabled={Boolean(cell) || thinking || gameOver}
                                     aria-label={`Cell ${index + 1}${cell ? `: ${cell}` : ": empty"}`}
-                                    className={`group/cell relative flex rounded-xl aspect-square items-center justify-center overflow-hidden border transition-all duration-200 ${isWinning
+                                    className={`group/cell relative flex rounded-xl aspect-square items-center justify-center overflow-hidden border transition-colors duration-200 ${isWinning
                                         ? cell === "X"
                                             ? "border-cyan-300 rounded-xl bg-cyan-400/20 shadow-[0_0_25px_rgba(34,211,238,0.25)]"
                                             : "border-red-400 bg-red-500/20 shadow-[0_0_25px_rgba(239,68,68,0.25)]"
@@ -312,62 +315,63 @@ const TicTacToe = () => {
                                     )}
 
                                     {cell && (
-                                        <span
+                                        <motion.span initial={{ scale: 0, rotate: -90, opacity: 0 }} animate={{ scale: 1, rotate: 0, opacity: 1 }} transition={{ type: "spring", stiffness: 350, damping: 18 }}
                                             className={`text-5xl font-black sm:text-6xl ${cell === "X"
                                                 ? "text-cyan-400 drop-shadow-[0_0_14px_rgba(34,211,238,0.8)]"
                                                 : "text-red-500 drop-shadow-[0_0_14px_rgba(239,68,68,0.8)]"
                                                 }`}
                                         >
                                             {cell}
-                                        </span>
+                                        </motion.span>
                                     )}
-                                </button>
+                                </motion.button>
                             );
                         })}
                     </div>
 
                     {/* Actions */}
                     <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                        <button
+                        <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}
                             type="button"
                             onClick={rematch}
-                            className="flex flex-1 items-center justify-center gap-2 border border-cyan-400/40 bg-cyan-400/5 px-4 py-3 text-xs font-bold uppercase tracking-widest text-cyan-300 transition hover:bg-cyan-400/15"
+                            className="flex flex-1 items-center justify-center gap-2 border border-cyan-400/40 bg-cyan-400/5 px-4 py-3 text-xs font-bold uppercase tracking-widest text-cyan-300 transition-colors hover:bg-cyan-400/15"
                         >
                             <RefreshCw size={15} />
                             Restart Round
-                        </button>
+                        </motion.button>
 
-                        <button
+                        <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}
                             type="button"
                             onClick={resetScores}
-                            className="border border-slate-700 px-4 py-3 text-xs font-bold uppercase tracking-widest text-slate-400 transition hover:border-red-500/50 hover:text-red-400"
+                            className="border border-slate-700 px-4 py-3 text-xs font-bold uppercase tracking-widest text-slate-400 transition-colors hover:border-red-500/50 hover:text-red-400"
                         >
                             Reset Scores
-                        </button>
+                        </motion.button>
                     </div>
 
                     <p className="mt-5 text-center text-[10px] uppercase tracking-[0.2em] text-slate-600">
                         X: Blue System // O: Red AI
                     </p>
-                </div>
+                </motion.div>
             </div>
 
             {/* Result Modal */}
+            <AnimatePresence>
             {modal && (
-                <div
+                <motion.div key="result-modal" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}
                     className="fixed inset-0 z-50 flex items-center justify-center bg-[#02040A]/85 p-4 backdrop-blur-md"
                     role="dialog"
                     aria-modal="true"
                     aria-labelledby="result-title"
                 >
-                    <div
+                    <motion.div initial={{ opacity: 0, scale: 0.8, y: 40 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9, y: 20 }} transition={{ type: "spring", stiffness: 300, damping: 24 }}
                         className={`w-full max-w-sm border ${modal.border} bg-[#080D1A] p-7 text-center shadow-2xl ${modal.glow} sm:p-9`}
                     >
-                        <div
+                        <motion.div initial={{ scale: 0, rotate: -180 }} animate={{ scale: 1, rotate: 0 }} transition={{ type: "spring", stiffness: 260, damping: 16, delay: 0.15 }}
                             className={`mx-auto flex h-16 w-16 items-center justify-center border ${modal.border} bg-white/[0.03] ${modal.color}`}
                         >
                             <ResultIcon size={32} />
-                        </div>
+                        </motion.div>
 
                         <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">
                             Mission Report
@@ -399,17 +403,18 @@ const TicTacToe = () => {
                             </p>
                         </div>
 
-                        <button
+                        <motion.button whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}
                             type="button"
                             onClick={rematch}
-                            className={`flex w-full items-center justify-center gap-2 border px-5 py-3.5 text-sm font-black uppercase tracking-widest transition ${modal.button} ${modal.color}`}
+                            className={`flex w-full items-center justify-center gap-2 border px-5 py-3.5 text-sm font-black uppercase tracking-widest transition-colors ${modal.button} ${modal.color}`}
                         >
                             <RefreshCw size={17} />
                             Rematch
-                        </button>
-                    </div>
-                </div>
+                        </motion.button>
+                    </motion.div>
+                </motion.div>
             )}
+            </AnimatePresence>
         </section>
     );
 };

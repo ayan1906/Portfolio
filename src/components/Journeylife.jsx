@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+import { fadeUp, fadeLeft, stagger, viewport } from "./motionVariants";
 
 import React from "react";
 import { NavLink } from "react-router-dom";
@@ -9,6 +11,8 @@ import {
     ArrowUpRight,
     Terminal,
 } from "lucide-react";
+
+const MotionNavLink = motion.create(NavLink);
 
 const Journeylife = () => {
     const highlights = [
@@ -48,13 +52,13 @@ const Journeylife = () => {
             className="relative overflow-hidden bg-[#080B18] px-5 py-8 text-white sm:px-8 lg:px-16"
         >
             {/* Background Glow */}
-            <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-violet-600/10 blur-[120px]" />
-            <div className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]" />
+            <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-violet-600/10 blur-[120px]" />
+            <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -right-32 bottom-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-[120px]" />
 
             <div className="relative mx-auto max-w-6xl">
                 {/* Heading */}
-                <div className="mb-8 text-center">
-                    
+                <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className="mb-8 text-center">
+
 
                     <h2 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
                         About{" "}
@@ -67,12 +71,12 @@ const Journeylife = () => {
                         A little introduction to my education, technical
                         interests, and journey as a developer.
                     </p>
-                </div>
+                </motion.div>
 
                 {/* Main Content */}
                 <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
                     {/* Left Side */}
-                    <div>
+                    <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={viewport}>
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 text-sm text-cyan-300">
                             <Terminal size={16} />
                             My Journey So Far
@@ -121,34 +125,35 @@ const Journeylife = () => {
 
                         {/* CTA */}
                         <div className="mt-8 flex flex-wrap gap-4">
-                            
-                                <NavLink
+
+                            <MotionNavLink
+                                whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                                 to="/project"
-                                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 px-6 py-3 text-sm font-semibold text-white transition hover:scale-105"
+                                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-violet-600 px-6 py-3 text-sm font-semibold text-white"
                             >
                                 Explore My Work
                                 <ArrowUpRight size={17} />
-                            </NavLink>
+                            </MotionNavLink>
 
-                            
-                            <a
+
+                            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
                                 href="/#contact"
-                                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-slate-300 transition hover:border-violet-400 hover:text-white"
+                                className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-slate-300 transition-colors hover:border-violet-400 hover:text-white"
                             >
                                 Contact Me
-                            </a>
+                            </motion.a>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right Side */}
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <motion.div variants={stagger(0.12, 0)} initial="hidden" whileInView="show" viewport={viewport} className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {highlights.map((item) => {
                             const Icon = item.icon;
 
                             return (
-                                <div
+                                <motion.div variants={fadeUp} whileHover={{ y: -6 }}
                                     key={item.title}
-                                    className="group rounded-2xl border border-white/10 bg-[#100D1A] p-6 transition duration-300 hover:-translate-y-1 hover:border-violet-500/50"
+                                    className="group rounded-2xl border border-white/10 bg-[#100D1A] p-6 transition-colors duration-300 hover:border-violet-500/50"
                                 >
                                     <div
                                         className={`mb-5 flex h-12 w-12 items-center justify-center rounded-xl ${item.bg} ${item.color}`}
@@ -163,20 +168,20 @@ const Journeylife = () => {
                                     <p className="mt-3 text-sm leading-6 text-slate-400">
                                         {item.text}
                                     </p>
-                                </div>
+                                </motion.div>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Education Timeline */}
                 <div className="mt-20">
-                    <h3 className="mb-8 text-center text-2xl font-bold">
+                    <motion.h3 variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className="mb-8 text-center text-2xl font-bold">
                         My <span className="text-violet-400">Journey</span>
-                    </h3>
+                    </motion.h3>
 
                     <div className="mx-auto max-w-2xl space-y-5">
-                        <div className="flex gap-5 rounded-2xl border border-white/10 bg-[#100D1A] p-5 sm:p-6">
+                        <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={viewport} className="flex gap-5 rounded-2xl border border-white/10 bg-[#100D1A] p-5 sm:p-6">
                             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-violet-500/10 text-violet-400">
                                 <GraduationCap size={22} />
                             </div>
@@ -193,9 +198,9 @@ const Journeylife = () => {
                                     started planning my technical career.
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex gap-5 rounded-2xl border border-white/10 bg-[#100D1A] p-5 sm:p-6">
+                        <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={viewport} className="flex gap-5 rounded-2xl border border-white/10 bg-[#100D1A] p-5 sm:p-6">
                             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
                                 <Code2 size={22} />
                             </div>
@@ -213,9 +218,9 @@ const Journeylife = () => {
                                     building projects.
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex gap-5 rounded-2xl border border-violet-500/20 bg-violet-500/5 p-5 sm:p-6">
+                        <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={viewport} className="flex gap-5 rounded-2xl border border-violet-500/20 bg-violet-500/5 p-5 sm:p-6">
                             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-fuchsia-500/10 text-fuchsia-400">
                                 <BriefcaseBusiness size={22} />
                             </div>
@@ -233,7 +238,7 @@ const Journeylife = () => {
                                     frontend developer.
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

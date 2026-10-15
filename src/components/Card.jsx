@@ -1,8 +1,19 @@
 import React from "react";
+import { motion } from "motion/react";
+import { fadeUp, viewport } from "./motionVariants";
 
-const Card = ({ bg, logo, name, text }) => {
+// `index` is optional - pass it from .map() so cards reveal one after another
+const Card = ({ bg, logo, name, text, index = 0 }) => {
     return (
-        <div className="group relative h-full w-full max-w-sm overflow-hidden rounded-2xl border border-purple-500/20 bg-[#0d0a16] p-7 transition-all duration-300 hover:-translate-y-2 hover:border-purple-400/50 hover:shadow-xl hover:shadow-purple-500/10">
+        <motion.div
+            variants={fadeUp}
+            custom={index}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            whileHover={{ y: -8 }}
+            className="group relative h-full w-full max-w-sm overflow-hidden rounded-2xl border border-purple-500/20 bg-[#0d0a16] p-7 transition-[border-color,box-shadow] duration-300 hover:border-purple-400/50 hover:shadow-xl hover:shadow-purple-500/10"
+        >
 
             <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-purple-600/10 blur-3xl transition-all duration-500 group-hover:bg-purple-500/20" />
 
@@ -23,7 +34,7 @@ const Card = ({ bg, logo, name, text }) => {
 
             <div className="absolute bottom-0 left-7 h-[2px] w-0 0 transition-all duration-300 group-hover:w-16" />
 
-        </div>
+        </motion.div>
 
     );
 };

@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+import { scaleIn, stagger, fadeUp, viewport } from "./motionVariants";
 import React from 'react'
 
 const Skillcard = () => {
@@ -47,27 +49,27 @@ const Skillcard = () => {
     return (
         <div>
 
-            <div className='mb-14 flex flex-col items-center text-center'>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className='mb-14 flex flex-col items-center text-center'>
                 <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
                         Skills & {" "}
                         <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
                             Intrest
                         </span>
                     </h2>
-            </div>
+            </motion.div>
 
 
-            <div className='grid grid-cols-2 lg:grid-cols-4'>
+            <motion.div variants={stagger(0.08, 0)} initial="hidden" whileInView="show" viewport={viewport} className='grid grid-cols-2 lg:grid-cols-4'>
                 {skilldata.map((skill) => (
-                    <div className='flex justify-center'>
-                        <div className=' bg-[#110d1b]/95 w-80 m-2 flex flex-col p-3 items-center justify-center rounded-lg gap-6 hover:bg-[#1b1036]/80 transition duration-200'>
+                    <motion.div key={skill.name} variants={scaleIn} className='flex justify-center'>
+                        <motion.div whileHover={{ y: -6, scale: 1.05 }} whileTap={{ scale: 0.97 }} className=' bg-[#110d1b]/95 w-80 m-2 flex flex-col p-3 items-center justify-center rounded-lg gap-6 hover:bg-[#1b1036]/80 transition-colors duration-200'>
                             <img className='w-12 -mb-4' src={skill.icon} alt="" />
                             <h1>{skill.name}</h1>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 ))}
 
-            </div>
+            </motion.div>
 
 
 

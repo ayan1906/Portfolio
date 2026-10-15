@@ -1,8 +1,10 @@
+import { fadeUp, viewport } from "./motionVariants";
 import React from 'react'
 import {
 
     FaGithub,
 } from "react-icons/fa";
+import { motion } from 'motion/react';
 import { CircleArrowOutUpRight } from 'lucide-react'
 
 const Projectcard = () => {
@@ -35,31 +37,33 @@ const Projectcard = () => {
     return (
         <div>
 
-            <div className='mb-14 flex flex-col items-center text-center'>
+            <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className='mb-14 flex flex-col items-center text-center'>
                 <h2 className="mt-5 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
 
                     <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
                         Projects
                     </span>
                 </h2>
-            </div>
+            </motion.div>
             <div className='w- justify-around grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3'>
                 {projectdata.map((project, index) => (
 
-                    <div key={index} className='mx-auto mb-10 w-85 rounded-xl bg-[#100D1A] border border-[#100D1A] hover:border-violet-700 hover:scale-102 transition duration-300'>
+                    <motion.div variants={fadeUp} custom={index} initial="hidden" whileInView="show" viewport={viewport} whileHover={{ y: -8, scale: 1.02 }} key={index} className='mx-auto mb-10 w-85 rounded-xl bg-[#100D1A] border border-[#100D1A] hover:border-violet-700 transition-colors duration-300'>
                         <img src={project.image} alt="" className=' h-56 p-3 rounded-3xl' />
-                        <h1 className='text-xl font-bold ml-4'>{project.name}</h1>
+                        <motion.h1
+                        
+                         className='text-xl font-bold ml-4'>{project.name}</motion.h1>
                         <p className='text-sm ml-4 my-4 text-slate-400'>{project.text}</p>
                         <div className='flex justify-center gap-4 '>
                             {project.skill.map((skil) => (
-                                <button className=' bg-[#1f1730] text-sm rounded-full px-3 py-1 gap-3' >{skil}</button>
+                                <button key={skil} className=' bg-[#1f1730] text-sm rounded-full px-3 py-1 gap-3' >{skil}</button>
                             ))}
                         </div>
                         <div className='webdemo flex items-center justify-around my-6'>
-                            <a className='flex items-center justify-center border border-violet-700 rounded-full px-4 py-2 text-sm gap-2 hover:bg-violet-700  transition duration-300' href="">Code <FaGithub /></a>
-                            <a className='flex items-center justify-center border border-violet-700 rounded-full px-4 py-2 text-sm gap-2 hover:bg-violet-700  transition duration-300' href="">View Site <CircleArrowOutUpRight className='w-4 h-4' /></a>
+                            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className='flex items-center justify-center border border-violet-700 rounded-full px-4 py-2 text-sm gap-2 hover:bg-violet-700 transition-colors duration-300' href={project.code} target="_blank" rel="noopener noreferrer">Code <FaGithub /></motion.a>
+                            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className='flex items-center justify-center border border-violet-700 rounded-full px-4 py-2 text-sm gap-2 hover:bg-violet-700 transition-colors duration-300' href={project.live} target="_blank" rel="noopener noreferrer">View Site <CircleArrowOutUpRight className='w-4 h-4' /></motion.a>
                         </div>
-                    </div>
+                    </motion.div>
 
                 ))}
             </div>

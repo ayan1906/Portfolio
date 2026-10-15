@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+import { EASE } from "./motionVariants";
 
 import React, { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
@@ -46,7 +48,7 @@ const Navbar = () => {
   return (
     <>
 
-      <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#08060d]/80 text-white backdrop-blur-xl">
+      <motion.header initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.9, ease: EASE }} className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#08060d]/80 text-white backdrop-blur-xl">
         <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 sm:px-8">
 
           <NavLink
@@ -78,10 +80,13 @@ const Navbar = () => {
                 {({ isActive }) => (
                   <>
                     {link.name}
-                    <span
-                      className={`absolute -bottom-1 left-0 h-[2px] rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-400 transition-all duration-300 ${isActive ? "w-full" : "w-0"
-                        }`}
-                    />
+                    {isActive && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-gradient-to-r from-purple-500 to-fuchsia-400"
+                      />
+                    )}
                   </>
                 )}
               </NavLink>
@@ -92,31 +97,31 @@ const Navbar = () => {
           <div className="hidden items-center gap-3 lg:flex">
 
 
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-4 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:border-purple-400/60 hover:bg-purple-500/20"
+            <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-full border border-purple-400/30 bg-purple-500/10 px-4 py-2.5 text-sm font-medium text-white transition-colors duration-300 hover:border-purple-400/60 hover:bg-purple-500/20"
             >
               Let's Talk
               <ArrowUpRight size={15} />
-            </a>
+            </motion.a>
           </div>
 
           {/* Mobile Actions */}
           <div className="flex items-center gap-3 lg:hidden">
 
 
-            <button
+            <motion.button whileTap={{ scale: 0.9 }}
               type="button"
               onClick={() => setMenuOpen(true)}
               aria-label="Open navigation menu"
               aria-expanded={menuOpen}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:border-purple-400/50"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition-colors hover:border-purple-400/50"
             >
               <Menu size={22} />
-            </button>
+            </motion.button>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* Mobile Overlay */}
       <div
@@ -129,12 +134,11 @@ const Navbar = () => {
       />
 
       {/* Right-side Mobile Drawer */}
-      <aside
+      <motion.aside initial={false} animate={{ x: menuOpen ? 0 : "100%" }} transition={{ type: "spring", stiffness: 220, damping: 32 }}
         id="mobile-navigation"
         aria-label="Mobile navigation"
         aria-hidden={!menuOpen}
-        className={`fixed right-0 top-0 z-[70] flex h-dvh w-[min(85%,360px)] flex-col border-l border-purple-400/20 bg-[#0b0713] shadow-[-20px_0_80px_rgba(124,58,237,0.15)] transition-transform duration-300 ease-in-out lg:hidden ${menuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed right-0 top-0 z-[70] flex h-dvh w-[min(85%,360px)] flex-col border-l border-purple-400/20 bg-[#0b0713] shadow-[-20px_0_80px_rgba(124,58,237,0.15)] lg:hidden`}
       >
         {/* Drawer Header */}
         <div className="flex h-[76px] shrink-0 items-center justify-between border-b border-white/10 px-5">
@@ -213,14 +217,14 @@ const Navbar = () => {
           </div>
 
           {/* Contact */}
-          <a
+          <motion.a whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}
             href="/#contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-950/30 transition hover:from-purple-500 hover:to-violet-500"
+            className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-purple-950/30 transition-colors hover:from-purple-500 hover:to-violet-500"
           >
             Let's Talk
             <ArrowUpRight size={17} />
-          </a>
+          </motion.a>
         </nav>
 
         {/* Drawer Footer */}
@@ -235,7 +239,7 @@ const Navbar = () => {
             © {new Date().getFullYear()} Ayan
           </p>
         </div>
-      </aside>
+      </motion.aside>
     </>
   );
 };

@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+import { fadeUp, viewport } from "./motionVariants";
 
 import { useEffect, useRef, useState } from "react";
 import {
@@ -171,10 +173,10 @@ const LanguageProficiency = () => {
       className="relative isolate overflow-hidden px-5 py-20 sm:px-8 lg:px-12"
     >
       {/* Background glow */}
-      <div className="pointer-events-none absolute -top-20 left-1/2 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-purple-600/10 blur-[120px]" />
+      <motion.div animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} className="pointer-events-none absolute -top-20 left-1/2 -z-10 h-72 w-72 -translate-x-1/2 rounded-full bg-purple-600/10 blur-[120px]" />
 
       {/* Heading */}
-      <div className="mx-auto mb-12 max-w-3xl text-center">
+      <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} className="mx-auto mb-12 max-w-3xl text-center">
         <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm font-medium text-purple-300">
           <Code2 size={17} />
           Skills & Expertise
@@ -191,7 +193,7 @@ const LanguageProficiency = () => {
           My current skills, experience, and the areas
           I'm focusing on to keep growing.
         </p>
-      </div>
+      </motion.div>
 
       {/* Skill cards */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
@@ -199,9 +201,9 @@ const LanguageProficiency = () => {
           const Icon = skill.icon;
 
           return (
-            <article
+            <motion.article variants={fadeUp} custom={index % 3} initial="hidden" whileInView="show" viewport={viewport} whileHover={{ y: -4 }}
               key={skill.name}
-              className={`group rounded-2xl border border-slate-800/90 bg-[#110d1b]/90 p-5 transition duration-300 hover:-translate-y-1 hover:border-purple-500/40 hover:shadow-xl ${skill.glow} sm:p-6`}
+              className={`group rounded-2xl border border-slate-800/90 bg-[#110d1b]/90 p-5 transition-[border-color,box-shadow] duration-300 hover:border-purple-500/40 hover:shadow-xl ${skill.glow} sm:p-6`}
             >
               {/* Skill name and percentage */}
               <div className="flex items-center justify-between gap-4">
@@ -291,7 +293,7 @@ const LanguageProficiency = () => {
                   </ul>
                 </div>
               </div>
-            </article>
+            </motion.article>
           );
         })}
       </div>

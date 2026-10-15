@@ -8,7 +8,7 @@ import Project from '@/Pages/Project'
 import Journey from '@/Pages/Journey'
 import Challenge from '@/Pages/Challenge'
 import Notfound from '@/components/Notfound'
-
+import Contact from '@/components/Contact'
 export const Router = createBrowserRouter([
     {
         path:'/',
@@ -37,6 +37,10 @@ export const Router = createBrowserRouter([
             {
                 path:'/challenge' , 
                 element: <Challenge/>
+            },
+            {
+                path:'/contact' , 
+                element: <Contact/>
             },
             {
                 path:'*' , 
