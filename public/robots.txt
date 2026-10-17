@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR_VERCEL_URL/sitemap.xml
+Sitemap: https://portfoliomain-snowy.vercel.app/sitemap.xml
