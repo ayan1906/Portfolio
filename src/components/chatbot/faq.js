@@ -6,15 +6,15 @@ export const FALLBACK =
 export const FAQ = [
     {
         questions: ["What is your name?", "Who are you?", "Tumi ke?", "Apnar nam ki?", "Introduce yourself"],
-        answer: "I'm [Your Name], a React developer from Bangladesh.",
+        answer: "I'm Sakin Arshad Ayan, a React developer from Bangladesh.",
     },
     {
         questions: ["What are your skills?", "Which technologies do you use?", "Tumi ki ki jano?", "Tech stack"],
-        answer: "React, JavaScript, Tailwind CSS, HTML/CSS, Git/GitHub.",
+        answer: "React, JavaScript, Tailwind CSS, HTML/CSS, Git/GitHub , firebase",
     },
     {
         questions: ["What projects have you made?", "Show me your work", "Tumi ki ki project banaiso?", "Your portfolio projects"],
-        answer: "Movie Explorer, CPI ICT Club. Check the projects section for details.",
+        answer: "Movie Explorer, CPI ICT Club , Flowflix Check the projects section for details.",
         link: { label: "See projects", href: "/project" },
     },
     {
@@ -24,7 +24,7 @@ export const FAQ = [
     },
     {
         questions: ["How can I contact you?", "What is your email?", "Whatsapp number", "Tomar sathe jogajog korbo kivabe?"],
-        answer: "Email: you@example.com\nWhatsApp: +880-XXXX-XXXXXX",
+        answer: "Email: adasr0099@gmail.com.com\nWhatsApp: +880-1708-56181",
     },
     {
         questions: ["Where are you from?", "Where do you live?", "Tumi kothay thako?"],
@@ -36,7 +36,7 @@ export const FAQ = [
     },
     {
         questions: ["How old are you?", "What is your age?", "Tomar boyos koto?", "Boyos koto?"],
-        answer: "I'm [age] years old.",
+        answer: "I'm 19 years old.",
     },
     {
         questions: ["Which languages do you speak?", "Do you speak English?", "Tumi kon bhasha-y kotha bolo?", "Bangla ba English e kotha bolte paro?"],
@@ -44,15 +44,15 @@ export const FAQ = [
     },
     {
         questions: ["How long have you been coding?", "How many years of experience do you have?", "Koto din dhore coding korcho?", "Tomar experience koto?"],
-        answer: "I've been building with React for [X] months/years, and I learn mostly by shipping real projects.",
+        answer: "I've been building with React for 3 months, and I learn mostly by shipping real projects.",
     },
     {
         questions: ["Which institute do you study in?", "Which college do you go to?", "Tumi kon institute e poro?"],
-        answer: "I study at [Institute name], in the diploma program.",
+        answer: "I study at CPI Polytechnic, in the diploma program.",
     },
     {
         questions: ["What are you learning now?", "What are you currently learning?", "Ekhon ki shikhcho?"],
-        answer: "Right now I'm learning [topic, e.g. advanced React patterns, Node.js] along with my diploma subjects.",
+        answer: "Right now I'm learning advanced React patterns along with my diploma subjects.",
     },
     {
         questions: ["Do you know data structures and algorithms?", "DSA jano?", "Do you practice DSA?"],
@@ -67,24 +67,24 @@ export const FAQ = [
         answer: "Coding, playing Free Fire, and trying out new web tech.",
     },
 
-    {
-        questions: ["Can I see your resume?", "Do you have a CV?", "Download resume", "Tomar CV ache?"],
-        answer: "Yes, you can download my resume here.",
-        link: { label: "Download resume", href: "/resume.pdf" },
-    },
+    // {
+    //     questions: ["Can I see your resume?", "Do you have a CV?", "Download resume", "Tomar CV ache?"],
+    //     answer: "Yes, you can download my resume here.",
+    //     link: { label: "Download resume", href: "/resume.pdf" },
+    // },
     {
         questions: ["What is your GitHub?", "GitHub link", "Tomar GitHub id ki?"],
-        answer: "My GitHub: github.com/[your-username]",
-        link: { label: "Open GitHub", href: "https://github.com/your-username" },
+        answer: "My GitHub: https://github.com/ayan1906",
+        link: { label: "Open GitHub", href: "https://github.com/ayan1906" },
     },
     {
         questions: ["Are you on LinkedIn?", "LinkedIn profile", "Tomar LinkedIn link dao"],
-        answer: "My LinkedIn: linkedin.com/in/[your-username]",
-        link: { label: "Open LinkedIn", href: "https://linkedin.com/in/your-username" },
+        answer: "My LinkedIn: linkedin.com/in/ayan1906]",
+        link: { label: "Open LinkedIn", href: "https://www.linkedin.com/in/sakin-ayan-a7953b346/" },
     },
     {
         questions: ["Where can I follow you?", "Social media links", "Facebook e tomake pabo kothay?"],
-        answer: "Facebook: [link]\nInstagram: [link]\nYouTube: [link]",
+        answer: "Facebook: [https://www.facebook.com/Iamayan1906]\nInstagram: [https://www.instagram.com/i_am_ayan19/]",
     },
     {
         questions: ["What is your time zone?", "Which timezone are you in?", "Tomar time zone ki?"],
@@ -92,7 +92,7 @@ export const FAQ = [
     },
     {
         questions: ["How fast do you reply?", "How long to get a reply?", "Reply dite koto time lage?"],
-        answer: "I usually reply within [a few hours / 24 hours].",
+        answer: "I usually reply within a few hours.",
     },
 
     {
@@ -105,15 +105,15 @@ export const FAQ = [
     },
     {
         questions: ["Are you a frontend or backend developer?", "Do you know backend?", "Tumi frontend na backend?"],
-        answer: "I'm mainly a frontend developer (React). Backend: [what you know, or 'I'm learning it'].",
+        answer: "I'm mainly a frontend developer (React).",
     },
     {
         questions: ["Which database do you use?", "Do you know Firebase?", "Tumi kon database use koro?"],
-        answer: "I've worked with [Firebase / MongoDB / none yet]. I pick what fits the project.",
+        answer: "none yet",
     },
     {
         questions: ["Can you integrate APIs?", "Do you work with REST APIs?", "API connect korte paro?"],
-        answer: "Yes, I regularly connect React apps to REST APIs (fetch/axios) and handle loading and error states properly.",
+        answer: "Yes, I regularly connect React apps to REST APIs (fetch) and handle loading and error states properly.",
     },
     {
         questions: ["Do you use Git?", "Do you use GitHub for projects?", "Git use koro?"],
@@ -121,7 +121,7 @@ export const FAQ = [
     },
     {
         questions: ["Which tools do you use?", "What code editor do you use?", "Tumi kon editor use koro?", "VS Code"],
-        answer: "VS Code, Git/GitHub, Chrome DevTools, [Figma, Postman, etc.].",
+        answer: "VS Code, Git/GitHub, Chrome DevTools, [Figma].",
     },
     {
         questions: ["Can you add animations?", "Do you use Framer Motion?", "Animation add korte paro?"],
@@ -140,10 +140,10 @@ export const FAQ = [
         questions: ["Can you make a portfolio website for me?", "Amar jonno portfolio website banai dibe?", "I need a personal website"],
         answer: "Yes, I can build a clean personal portfolio site tailored to you.",
     },
-    {
-        questions: ["Can you build an online store?", "E-commerce website banaite paro?", "Do you build e-commerce sites?"],
-        answer: "I can build the frontend of an online store (product pages, cart, checkout UI). For payments and backend I'll tell you honestly what I can handle: [your scope].",
-    },
+    // {
+    //     questions: ["Can you build an online store?", "E-commerce website banaite paro?", "Do you build e-commerce sites?"],
+    //     answer: "I can build the frontend of an online store (product pages, cart, checkout UI). For payments and backend I'll tell you honestly what I can handle: [your scope].",
+    // },
     {
         questions: ["Can you fix bugs in my React project?", "Can you debug my code?", "Amar React code-er bug fix korte paro?"],
         answer: "Yes, send me the repo or the error and I'll take a look.",
@@ -170,7 +170,7 @@ export const FAQ = [
     },
     {
         questions: ["Do I need a domain and hosting?", "Domain lagbe?", "How do I buy a domain?"],
-        answer: "A domain is optional but recommended (about [price]/year). I can guide you through buying one. Basic hosting on Vercel/Netlify is free.",
+        answer: "A domain is optional but recommended . I can guide you through buying one. Basic hosting on Vercel/Netlify is free.",
     },
 
     {
@@ -180,7 +180,7 @@ export const FAQ = [
     },
     {
         questions: ["How can I pay you?", "Do you accept bKash?", "Payment kivabe korbo?", "Which payment methods do you accept?"],
-        answer: "I accept bKash, Nagad, [bank transfer / Payoneer / PayPal].",
+        answer: "I accept bKash, Nagad, [bank transfer / Bkash / Binance].",
     },
     {
         questions: ["Do you take advance payment?", "Is advance required?", "Advance dite hobe?"],
@@ -222,7 +222,7 @@ export const FAQ = [
     },
     {
         questions: ["How many hours do you work per day?", "When are you available?", "Tumi kon shomoy available thako?", "Working hours"],
-        answer: "I'm usually available [time range] Bangladesh time.",
+        answer: "I'm usually available 5 AM to 1 PM Bangladesh time.",
     },
     {
         questions: ["Do you work with international clients?", "Do you work with clients outside Bangladesh?", "Bidesh-er client er shathe kaj koro?"],
@@ -243,7 +243,7 @@ export const FAQ = [
     },
     {
         questions: ["Are you looking for a job?", "Are you open to internships?", "Tumi ki job khujcho?", "Internship korte chao?"],
-        answer: "I'm open to [internships / part-time / junior frontend roles]. Please send me the details.",
+        answer: "I'm open to internships . Please send me the details.",
         link: { label: "Contact me", href: "#contact" },
     },
     
