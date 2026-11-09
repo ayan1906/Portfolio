@@ -1,5 +1,13 @@
 
 User-agent: *
-Allow: /
 
+Disallow: /account/
+Disallow: /api/
+Allow: /about/
+Allow: /skills/
+Allow: /project/
+Allow: /journey/
+Allow: /challenge/
+Allow: /contact/
+Allow: /
 Sitemap: https://portfoliomain-snowy.vercel.app/sitemap.xml
