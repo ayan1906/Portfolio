@@ -249,7 +249,7 @@ const Contact = () => {
 
                             type="submit"
                             disabled={isSubmitting}
-                            className="mt-1 flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#5145e8] to-[#922de8] px-5 py-3.5 text-sm font-bold text-white shadow-lg disabled:opacity-60"
+                            className="mt-1 flex cursor-pointer w-full items-center justify-center rounded-xl bg-gradient-to-r from-[#5145e8] to-[#922de8] px-5 py-3.5 text-sm font-bold text-white shadow-lg disabled:opacity-60"
                         >
                             {isSubmitting ? "Sending..." : "Send Message"}
                         </motion.button>
