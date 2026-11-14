@@ -5,6 +5,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import About from '@/Pages/About'
 import Skills from '@/Pages/Skills'
 import Project from '@/Pages/Project'
+import ProjectDetail from '@/Pages/ProjectDetail'
 import Journey from '@/Pages/Journey'
 import Challenge from '@/Pages/Challenge'
 import Notfound from '@/components/Notfound'
@@ -29,6 +30,10 @@ export const Router = createBrowserRouter([
             {
                 path:'/project' , 
                 element: <Project/>
+            },
+            {
+                path:'/project/:id' , 
+                element: <ProjectDetail/>
             },
             {
                 path:'/journey' , 
