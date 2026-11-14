@@ -6,6 +6,7 @@ import About from '@/Pages/About'
 import Skills from '@/Pages/Skills'
 import Project from '@/Pages/Project'
 import ProjectDetail from '@/Pages/ProjectDetail'
+import CV from '@/Pages/CV'
 import Journey from '@/Pages/Journey'
 import Challenge from '@/Pages/Challenge'
 import Notfound from '@/components/Notfound'
@@ -34,6 +35,14 @@ export const Router = createBrowserRouter([
             {
                 path:'/project/:id' , 
                 element: <ProjectDetail/>
+            },
+            {
+                path:'/cv' , 
+                element: <CV/>
+            },
+            {
+                path:'/resume' , 
+                element: <CV/>
             },
             {
                 path:'/journey' , 

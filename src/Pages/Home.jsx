@@ -92,7 +92,7 @@ const Home = () => {
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
             <MotionNavLink
               whileHover={{ y: -4 }} whileTap={{ scale: 0.95 }}
-              to="/project"
+              to="/cv"
               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-purple-600 px-6 py-3 font-medium text-white shadow-lg shadow-purple-900/20 transition-shadow duration-300 hover:shadow-purple-500/25"
             >
               My CV

@@ -6,7 +6,7 @@ export const FALLBACK =
 export const FAQ = [
     {
         questions: ["What is your name?", "Who are you?", "Tumi ke?", "Apnar nam ki?", "Introduce yourself"],
-        answer: "I'm [Your Name], a React developer from Bangladesh.",
+        answer: "I'm Sakin Arshad Ayan, a React developer from Bangladesh.",
     },
     {
         questions: ["What are your skills?", "Which technologies do you use?", "Tumi ki ki jano?", "Tech stack"],
@@ -14,7 +14,7 @@ export const FAQ = [
     },
     {
         questions: ["What projects have you made?", "Show me your work", "Tumi ki ki project banaiso?", "Your portfolio projects"],
-        answer: "Movie Explorer, CPI ICT Club. Check the projects section for details.",
+        answer: "LuxuryStay, CPI ICT Club. Check the projects section for details.",
         link: { label: "See projects", href: "/project" },
     },
     {
@@ -24,7 +24,7 @@ export const FAQ = [
     },
     {
         questions: ["How can I contact you?", "What is your email?", "Whatsapp number", "Tomar sathe jogajog korbo kivabe?"],
-        answer: "Email: you@example.com\nWhatsApp: +880-XXXX-XXXXXX",
+        answer: "Email: adasr0099@gmail.com\nWhatsApp: +88017085614",
     },
     {
         questions: ["Where are you from?", "Where do you live?", "Tumi kothay thako?"],
@@ -36,7 +36,7 @@ export const FAQ = [
     },
     {
         questions: ["How old are you?", "What is your age?", "Tomar boyos koto?", "Boyos koto?"],
-        answer: "I'm [age] years old.",
+        answer: "I'm 19 years old.",
     },
     {
         questions: ["Which languages do you speak?", "Do you speak English?", "Tumi kon bhasha-y kotha bolo?", "Bangla ba English e kotha bolte paro?"],
@@ -44,19 +44,19 @@ export const FAQ = [
     },
     {
         questions: ["How long have you been coding?", "How many years of experience do you have?", "Koto din dhore coding korcho?", "Tomar experience koto?"],
-        answer: "I've been building with React for [X] months/years, and I learn mostly by shipping real projects.",
+        answer: "I've been building with React for 6 months, and I learn mostly by shipping real projects.",
     },
     {
         questions: ["Which institute do you study in?", "Which college do you go to?", "Tumi kon institute e poro?"],
-        answer: "I study at [Institute name], in the diploma program.",
+        answer: "I study at CPI Polytechnic, in the diploma program.",
     },
     {
         questions: ["What are you learning now?", "What are you currently learning?", "Ekhon ki shikhcho?"],
-        answer: "Right now I'm learning [topic, e.g. advanced React patterns, Node.js] along with my diploma subjects.",
+        answer: "Right now I'm learning advanced React patterns and Machine Learning along with my diploma subjects.",
     },
     {
         questions: ["Do you know data structures and algorithms?", "DSA jano?", "Do you practice DSA?"],
-        answer: "Yes, I'm studying Data Structures & Algorithms as part of my diploma and practicing it alongside React.",
+        answer: "Yes, I'm studying Machine Learning as part of my diploma and practicing it alongside React.",
     },
     {
         questions: ["Do you play Free Fire?", "Are you a gamer?", "Free Fire khelo?", "Tumi ki gamer?"],
@@ -68,9 +68,9 @@ export const FAQ = [
     },
 
     {
-        questions: ["Can I see your resume?", "Do you have a CV?", "Download resume", "Tomar CV ache?"],
-        answer: "Yes, you can download my resume here.",
-        link: { label: "Download resume", href: "/resume.pdf" },
+        questions: ["Can I see your resume?", "Do you have a CV?", "Download resume", "Tomar CV ache?", "CV link", "Resume"],
+        answer: "Yes, you can view my web CV or download the official PDF directly.",
+        link: { label: "View My CV", href: "/cv" },
     },
     {
         questions: ["What is your GitHub?", "GitHub link", "Tomar GitHub id ki?"],
